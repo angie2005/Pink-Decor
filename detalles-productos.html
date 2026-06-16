@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Decor | Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">PINK DECOR</div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="productos.html" class="nav-link active">Productos</a>
+            <a href="promociones.html" class="nav-link">Promociones</a>
+        </nav>
+        <div class="header-icons">
+            <button class="icon-btn" id="cart-toggle">🛒 <span id="cart-count">0</span></button>
+            <a href="#registro" class="registro-link">Registro</a>
+        </div>
+    </header>
+
+    <main class="producto-minimalista-container">
+    
+    <div class="galeria-limpia">
+        <div class="miniaturas-columna">
+            <img src="img/tu-foto-1.jpg" alt="Miniatura 1" class="active">
+            <img src="img/tu-foto-2.jpg" alt="Miniatura 2">
+            <img src="img/tu-foto-3.jpg" alt="Miniatura 3">
+        </div>
+        <div class="imagen-destacada">
+            <img src="img/tu-foto-1.jpg" alt="Mesa auxiliar Altea">
+        </div>
+    </div>
+
+    <div class="info-esencial">
+        <h1 class="titulo-limpio">Mesa auxiliar Altea</h1>
+        <p class="precio-destacado">$60.500</p>
+        
+        <p class="descripcion-producto">
+            Dale un toque cálido y minimalista a tu hogar. Fabricada en madera natural con un acabado suave al tacto. Esta mesa es el complemento perfecto para acompañar tus mañanas de café o para usar como mesa de luz en tu habitación, aportando diseño y funcionalidad en un solo mueble.
+        </p>
+
+        <div class="acciones-simples">
+           <div class="control-cantidad">
+            <button class="btn-restar">-</button>
+            <input type="number" value="1" min="1">
+            <button class="btn-sumar">+</button>
+        </div>
+            <button class="btn-agregar-carrito">Agregar al carrito</button>
+        </div>
+    </div>
+</main>
+
+<section class="relacionados-section">
+    <h2>También te podría gustar</h2>
+    <div class="carrusel-relacionados">
+        <div class="relacionado-card">
+            <img src="img/relacionado1.jpg" alt="Sillón">
+            <h3>Sillón Nórdico</h3>
+            <p>$120.000</p>
+        </div>
+        <div class="relacionado-card">
+            <img src="img/relacionado2.jpg" alt="Lámpara">
+            <h3>Lámpara de pie</h3>
+            <p>$45.000</p>
+        </div>
+        <div class="relacionado-card">
+            <img src="img/relacionado3.jpg" alt="Espejo">
+            <h3>Espejo Circular</h3>
+            <p>$35.000</p>
+        </div>
+        <div class="relacionado-card">
+            <img src="img/relacionado4.jpg" alt="Alfombra">
+            <h3>Alfombra Beige</h3>
+            <p>$28.000</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // JS para la galería
+    const imagenGrande = document.querySelector('.imagen-destacada img');
+    const miniaturasLimpias = document.querySelectorAll('.miniaturas-columna img');
+
+    miniaturasLimpias.forEach(miniatura => {
+        miniatura.addEventListener('click', function() {
+            imagenGrande.src = this.src; // Cambia la foto principal
+            miniaturasLimpias.forEach(img => img.classList.remove('active')); // Limpia bordes
+            this.classList.add('active'); // Pone borde a la seleccionada
+        });
+    });
+
+// Lógica para el selector de cantidad
+const btnRestar = document.querySelector('.btn-restar');
+const btnSumar = document.querySelector('.btn-sumar');
+const inputCantidad = document.querySelector('.control-cantidad input');
+
+btnSumar.addEventListener('click', () => {
+    let valor = parseInt(inputCantidad.value);
+    inputCantidad.value = valor + 1;
+});
+
+btnRestar.addEventListener('click', () => {
+    let valor = parseInt(inputCantidad.value);
+    // Evitamos que baje de 1
+    if (valor > 1) {
+        inputCantidad.value = valor - 1;
+    }
+});
+    
+</script>
+
+</body>
+
+</html>

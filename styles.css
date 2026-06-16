@@ -1,0 +1,821 @@
+/* VARIABLES DE COLOR (Paleta Pastel Estética) */
+:root {
+    --pink-primary: #ffb7c5;
+    --pink-dark: #e096a5;
+    --pink-light: #fff0f2;
+    --text-dark: #333333;
+    --bg-clean: #fafafa;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-clean);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* HEADER Y NAVEGACIÓN SIMÉTRICA */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--pink-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--pink-dark);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--pink-dark);
+    color: var(--white);
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.registro-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    border: 1px solid var(--text-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.registro-link:hover {
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   NUEVO HERO SLIDER INTERACTIVO (MOVIMIENTO Y FLUIDEZ)
+   ========================================================================== */
+.hero-slider-container {
+    position: relative;
+    width: 100%;
+    height: 92vh; /* Altura ideal de pantalla */
+    overflow: hidden;
+    background-color: #fbf6f6;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* Efecto técnico de Transición y Fade Out */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease-out;
+    transform: scale(1.04); /* Pequeño zoom de fondo para dar profundidad */
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1); /* Suaviza el zoom al activarse */
+    z-index: 2;
+}
+
+/* Cuadro esmerilado con micro-animación de subida al activarse */
+.slide .hero-content {
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 60px;
+    border-radius: 20px;
+    max-width: 650px;
+    width: 85%;
+    box-shadow: 0 20px 40px rgba(224, 150, 165, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    /* El texto arranca abajo y oculto */
+    transform: translateY(25px);
+    opacity: 0;
+    transition: transform 0.6s ease-out 0.3s, opacity 0.6s ease-out 0.3s;
+}
+
+.slide.active .hero-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --- DISEÑO DE LAS FLECHAS --- */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #c98290; /* Tono Rosa Viejo */
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.slider-arrow:hover {
+    background-color: #c98290;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(201, 130, 144, 0.4);
+}
+
+.slider-arrow.prev { left: 25px; }
+.slider-arrow.next { right: 25px; }
+
+/* --- DISEÑO DE LOS PUNTITOS INFERIORES --- */
+.slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(201, 130, 144, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+    background-color: #c98290;
+    width: 26px; /* Efecto expandido moderno */
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   ESTILO DEL BOTÓN PRINCIPAL (BTN-CTA)
+   ========================================================================== */
+.btn-cta {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 14px 36px;
+    background-color: #c98290; /* El tono rosa viejo de tu paleta */
+    color: #ffffff !important; /* Fuerza el texto a blanco */
+    text-decoration: none !important; /* Elimina por completo el subrayado feo */
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; /* Fuerza mayúsculas sofisticadas */
+    border-radius: 50px; /* Le da la forma redondeada de cápsula */
+    box-shadow: 0 4px 15px rgba(201, 130, 144, 0.25);
+    
+    /* Transición suave para los efectos físicos */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- EFECTO INTERACTIVO AL PASAR EL MOUSE (HOVER) --- */
+.btn-cta:hover {
+    background-color: #b56f7d; /* Se oscurece sutilmente */
+    transform: translateY(-4px); /* Efecto físico de elevación/movimiento */
+    box-shadow: 0 8px 25px rgba(201, 130, 144, 0.45); /* La sombra se expande */
+    letter-spacing: 2px; /* Un micro-espaciado dinámico en las letras */
+}
+
+/* --- EFECTO AL HACER CLIC (ACTIVE) --- */
+.btn-cta:active {
+    transform: translateY(-1px); /* Baja levemente al presionarlo */
+    box-shadow: 0 4px 12px rgba(201, 130, 144, 0.35);
+}
+
+/* ==========================================================================
+   SECCIÓN BENEFICIOS (NUEVA ALTERNATIVA: BANNER ELEGANTE)
+   ========================================================================== */
+.beneficios-container {
+    display: flex;
+    justify-content: space-evenly; /* Distribuye el espacio entre los 3 elementos */
+    align-items: center;
+    flex-wrap: wrap; /* Asegura que no se rompa en pantallas más chicas */
+    width: 100%;
+    background-color: #faf7f7; /* Un fondo grisáceo/rosa súper tenue y elegante */
+    padding: 30px 5%;
+    margin: 0 0 70px 0; /* Margen inferior para separarlo de los productos */
+    
+    /* Bordes sutiles arriba y abajo para enmarcar la sección */
+    border-top: 1px solid #f0e6e8;
+    border-bottom: 1px solid #f0e6e8;
+}
+
+.beneficio-card {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555555;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; /* Fuerza las mayúsculas para dar un aire premium */
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.beneficio-card:hover {
+    color: #c98290; /* Se tiñe sutilmente de tu rosa principal al pasar el mouse */
+    .beneficios-container {
+    width: 100%;
+    overflow: hidden; /* Oculta lo que sale del contenedor */
+    background-color: #faf7f7;
+    padding: 20px 0;
+    border-top: 1px solid #f0e6e8;
+    border-bottom: 1px solid #f0e6e8;
+}
+}
+
+.beneficios-track {
+    display: flex;
+    width: max-content; /* Se ajusta al ancho total de las tarjetas */
+    animation: scroll 20s linear infinite; /* Movimiento constante */
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* Mueve la mitad para reiniciar el ciclo */
+}
+
+.beneficio-card {
+    padding: 20px 50px; /* Espaciado entre elementos */
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555555;
+}
+
+<!-- MAS ELEGIDO --¡>
+
+/* ===== PRODUCTOS DESTACADOS ===== */
+
+.destacados-section {
+    padding: 5rem 50%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.3rem;
+    color: #222;
+    margin-bottom: .5rem;
+}
+
+.section-title p {
+    color: #777;
+}
+
+.destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.destacado-card {
+    background-color: var(--white);
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.destacado-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.badge-destacado {
+    position: absolute;
+    top: 20px;
+    left: -35px;
+    z-index: 10;
+
+    background: #ef9fb2;
+    color: #fff;
+
+    padding: 8px 40px;
+
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transform: rotate(-45deg);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--pink-light);
+    margin-bottom: 15px;
+}
+
+.image-wrapper img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: opacity .5s ease,
+                transform .6s ease;
+}
+
+.img-hover {
+    opacity: 0;
+}
+
+.destacado-card:hover .img-hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.destacado-card:hover .img-principal {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.producto-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.producto-info h3 {
+    color: #222;
+    margin-bottom: .8rem;
+    font-size: 1.1rem;
+}
+
+.price {
+    display: block;
+    color: #ef9fb2;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+/* SECCIÓN PRODUCTOS CON GRILLA ESTRICTA */
+.productos-section {
+    padding: 60px 5%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: var(--white);
+    border: 1px solid var(--pink-primary);
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--pink-primary);
+    color: var(--text-dark);
+}
+
+/* Grilla Modular Adaptativa */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--white);
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-img-placeholder {
+    background-color: var(--pink-light);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pink-dark);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.price {
+    color: var(--pink-dark);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-add-cart {
+    background-color: var(--bg-clean);
+    border: 1px solid var(--text-dark);
+    padding: 8px 15px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* PROMOCIONES */
+.promociones-section {
+    padding: 40px 5%;
+}
+
+.promo-banner {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: 40px;
+    text-align: center;
+}
+
+.promo-banner h2 {
+    color: var(--pink-primary);
+    margin-bottom: 10px;
+}
+
+/* CARRITO LATERAL (INTERACTIVO) */
+.sidebar-cart {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Escondido por defecto */
+    width: 350px;
+    height: 100vh;
+    background-color: var(--white);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-cart.open {
+    right: 0; /* Desplegado */
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cart-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f9f9f9;
+    font-size: 14px;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-checkout {
+    background-color: var(--pink-dark);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* DETALLES DE PRODUCTOS*/
+
+/* =========================================
+   DISEÑO DEL PRODUCTO MINIMALISTA
+   ========================================= */
+.producto-minimalista-container {
+    display: flex;
+    gap: 60px;
+    padding: 60px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center; /* Mantiene todo alineado verticalmente */
+}
+
+/* GALERÍA */
+.galeria-limpia {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.miniaturas-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.miniaturas-columna img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.miniaturas-columna img:hover,
+.miniaturas-columna img.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #c98290; /* Tu color rosa para la foto seleccionada */
+}
+
+.imagen-destacada {
+    flex: 1;
+}
+
+.imagen-destacada img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* INFORMACIÓN (Derecha) */
+.info-esencial {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titulo-limpio {
+    font-size: 32px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.precio-destacado {
+    font-size: 26px;
+    font-weight: 700;
+    color: #c98290;
+    margin: 0;
+}
+
+.descripcion-producto {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* BOTONES DE COMPRA */
+.acciones-simples {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.control-cantidad button {
+    background: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.control-cantidad input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.btn-agregar-carrito {
+    flex: 1;
+    background-color: #222; /* Negro muy elegante */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #c98290; /* Se vuelve rosa al pasar el mouse */
+
+}
+
+/* Quitar flechitas de control del número */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;  
+}
+
+/* Aseguramos que el contenedor sea el único que tenga borde */
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff; /* Fondo blanco sólido para el contenedor */
+    box-shadow: none !important; /* Asegura que el contenedor no tenga sombra */
+}
+
+/* =========================================
+   CARRUSEL DE PRODUCTOS RELACIONADOS
+   ========================================= */
+.relacionados-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid #eee; /* Línea suave que separa las secciones */
+}
+
+.relacionados-section h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.carrusel-relacionados {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto; /* Permite deslizar con el dedo o el mouse */
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+/* Ocultar la barra de desplazamiento fea de Windows/Chrome */
+.carrusel-relacionados::-webkit-scrollbar {
+    display: none;
+}
+
+.relacionado-card {
+    min-width: 260px; /* Tamaño de cada foto en el carrusel */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.relacionado-card:hover {
+    transform: translateY(-5px); /* Pequeño saltito al pasar el mouse */
+}
+
+.relacionado-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.relacionado-card h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.relacionado-card p {
+    font-weight: 600;
+    color: #c98290;
+    margin: 0;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #222;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+

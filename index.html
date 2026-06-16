@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Decor | Tu Hogar, Tu Refugio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- CABECERA / NAVBAR -->
+    <header class="header">
+        <div class="logo">PINK DECOR</div>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="productos.html" class="nav-link">Productos</a>
+          <a href="promociones.html" class="nav-link">Promociones</a>
+        </nav>
+        <div class="header-icons">
+            <button class="icon-btn" id="cart-toggle">🛒 <span id="cart-count">0</span></button>
+            <a href="#registro" class="registro-link">Registro</a>
+        </div>
+    </header>
+
+    <main>
+
+         <!-- HERO SECTION -->
+
+        <section id="inicio" class="hero-slider-container">
+    <div class="slider-wrapper">
+        
+        <div class="slide active" style="background-image: url('img/hero\ section\.jpg');">
+            <div class="hero-content">
+                <h1>TU HOGAR, TU REFUGIO</h1>
+                <p>Objetos de decoración con alma propia</p>
+                <a href="productos.html" class="btn-cta">VER PRODUCTOS</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('img/hero\ section\ 1.jpg');">
+            <div class="hero-content">
+                <h1>ESPACIOS CON HISTORIA</h1>
+                <p>Diseños exclusivos para inspirar tu día a día</p>
+                <a href="productos.html" class="btn-cta">EXPLORAR CATÁLOGO</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('img/hero\ section\ 2.jpg');">
+            <div class="hero-content">
+                <h1>DETALLES QUE ENAMORAN</h1>
+                <p>Encontrá la armonía perfecta en cada rincón</p>
+                <a href="promociones.html" class="btn-cta">VER PROMOCIONES</a>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="slider-arrow prev" id="slide-prev">&#10094;</button>
+    <button class="slider-arrow next" id="slide-next">&#10095;</button>
+
+    <div class="slider-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+    </div>
+</section>
+
+       <section class="beneficios-container">
+    <div class="beneficios-track">
+        <div class="beneficio-card">📦 Envíos a todo el país</div>
+        <div class="beneficio-card">💳 3 y 6 cuotas sin interés</div>
+        <div class="beneficio-card">🔒 Compra 100% segura</div>
+        <!-- Duplicamos los elementos para que el bucle sea infinito -->
+        <div class="beneficio-card">📦 Envíos a todo el país</div>
+        <div class="beneficio-card">💳 3 y 6 cuotas sin interés</div>
+        <div class="beneficio-card">🔒 Compra 100% segura</div>
+    </div>
+        </section>
+
+    </main>
+
+    <!-- MAS ELEGIDO -->
+
+   <section class="destacados-section">
+
+    <div class="section-title">
+        <h2>Productos Destacados</h2>
+        <p>Nuestras piezas favoritas de la temporada</p>
+    </div>
+
+    <div class="destacados-grid">
+
+        <!-- Tarjeta 1 -->
+        <article class="destacado-card">
+
+            <span class="badge-destacado">
+                Destacado
+            </span>
+
+            <div class="image-wrapper">
+
+                <img
+                    src="img/lampara 1.jpg"
+                    alt="Alfombra nórdica"
+                    class="img-principal"
+                >
+
+                <img
+                    src="img/lampara 1.1.jpg"
+                    alt="Alfombra nórdica detalle"
+                    class="img-hover"
+                >
+
+            </div>
+
+            <div class="producto-info">
+
+    <h3>Alfombra Nórdica Pastel</h3>
+
+    <span class="price">$24.500</span>
+
+    <button class="btn-add-cart">
+        Añadir al Carrito
+    </button>
+
+</div>
+
+        </article>
+
+        <!-- Tarjeta 2 -->
+        <article class="destacado-card">
+
+            <span class="badge-destacado">
+                Destacado
+            </span>
+
+            <div class="image-wrapper">
+
+                <img
+                    src="assets/img/destacados/taza-1.jpg"
+                    alt="Taza artesanal"
+                    class="img-principal"
+                >
+
+                <img
+                    src="assets/img/destacados/taza-2.jpg"
+                    alt="Taza artesanal detalle"
+                    class="img-hover"
+                >
+
+            </div>
+
+            <div class="producto-info">
+
+    <h3>Alfombra Nórdica Pastel</h3>
+
+    <span class="price">$24.500</span>
+
+    <button class="btn-add-cart">
+        Añadir al Carrito
+    </button>
+
+</div>
+
+        </article>
+
+        <!-- Tarjeta 3 -->
+        <article class="destacado-card">
+
+            <span class="badge-destacado">
+                Destacado
+            </span>
+
+            <div class="image-wrapper">
+
+                <img
+                    src="assets/img/destacados/manta-1.jpg"
+                    alt="Manta mullida"
+                    class="img-principal"
+                >
+
+                <img
+                    src="assets/img/destacados/manta-2.jpg"
+                    alt="Manta mullida detalle"
+                    class="img-hover"
+                >
+
+            </div>
+
+           <div class="producto-info">
+
+    <h3>Alfombra Nórdica Pastel</h3>
+
+    <span class="price">$24.500</span>
+
+    <button class="btn-add-cart">
+        Añadir al Carrito
+    </button>
+
+</div>
+        </article>
+
+    </div>
+
+</section>
+
+    <!-- CARRITO LATERAL (INTERACTIVO DESPLEGABLE) -->
+    <div class="sidebar-cart" id="sidebar-cart">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="cart-close">✕</button>
+        </div>
+        <div class="cart-body">
+            <p id="empty-cart-msg">No hay productos elegidos por el usuario.</p>
+            <ul id="cart-items-list"></ul>
+        </div>
+        <div class="cart-footer">
+            <button class="btn-checkout" id="btn-pago">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <p>&copy; 2026 PINK DECOR - Proyecto Integrador. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

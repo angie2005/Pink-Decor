@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Decor | Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">PINK DECOR</div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="productos.html" class="nav-link active">Productos</a>
+            <a href="promociones.html" class="nav-link">Promociones</a>
+        </nav>
+        <div class="header-icons">
+            <button class="icon-btn" id="cart-toggle">🛒 <span id="cart-count">0</span></button>
+            <a href="#registro" class="registro-link">Registro</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="productos-section">
+            <h2 class="section-title">Nuestro Catálogo Completo</h2>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="living">Living</button>
+                <button class="filter-btn" data-filter="escritorio">Escritorio</button>
+                <button class="filter-btn" data-filter="cocina">Cocina</button>
+                <button class="filter-btn" data-filter="habitacion">Habitación</button>
+            </div>
+
+            <div class="products-grid" id="products-container">
+
+                <div class="product-card" data-category="living">
+                    <a href="detalles-productos.html" style="text-decoration: none; color: inherit;">
+                         <div class="product-img-placeholder">🛏️ Alfombra</div>
+                         <h3>Alfombra Nórdica Pastel</h3> 
+                    </a>
+                    <p class="price">$24.500</p>
+                    <button class="btn-add-cart">Añadir al Carrito</button>
+                </div>
+
+                <div class="product-card" data-category="escritorio">
+                    <a href="detalles-productos.html" style="text-decoration: none; color: inherit;">
+                         <div class="product-img-placeholder">💻 Planner</div>
+                         <h3>Planner Diario Minimalista</h3>
+                    </a>
+                    <p class="price">$8.900</p>
+                    <button class="btn-add-cart">Añadir al Carrito</button>
+                </div>
+
+                <div class="product-card" data-category="cocina">
+                    <a href="detalles-productos.html" style="text-decoration: none; color: inherit;">
+                         <div class="product-img-placeholder">🍽️ Vajilla</div>
+                         <h3>Taza Artesanal Rosa Viejo</h3>
+                    </a>
+                    <p class="price">$6.200</p>
+                    <button class="btn-add-cart">Añadir al Carrito</button>
+                </div>
+
+                <div class="product-card" data-category="habitacion">
+                    <a href="detalles-productos.html" style="text-decoration: none; color: inherit;">
+                         <div class="product-img-placeholder">🛏️ Manta</div>
+                         <h3>Manta de Cama Mullida</h3>
+                    </a>
+                    <p class="price">$32.000</p>
+                    <button class="btn-add-cart">Añadir al Carrito</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div class="sidebar-cart" id="sidebar-cart">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="cart-close">✕</button>
+        </div>
+        <div class="cart-body">
+            <p id="empty-cart-msg">No hay productos elegidos por el usuario.</p>
+            <ul id="cart-items-list"></ul>
+        </div>
+        <div class="cart-footer">
+            <button class="btn-checkout" id="btn-pago">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 PINK DECOR - Proyecto Integrador. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

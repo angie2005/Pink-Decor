@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Decor | Promociones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">PINK DECOR</div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="productos.html" class="nav-link">Productos</a>
+            <a href="promociones.html" class="nav-link active">Promociones</a>
+        </nav>
+        <div class="header-icons">
+            <button class="icon-btn" id="cart-toggle">🛒 <span id="cart-count">0</span></button>
+            <a href="#registro" class="registro-link">Registro</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="promociones-section">
+            <h2 class="section-title">Descuentos Especiales</h2>
+            <div class="promo-banner">
+                <h2>HASTA 30% OFF</h2>
+                <p>Renová tus espacios con las ofertas de la temporada.</p>
+            </div>
+            
+            </section>
+    </main>
+
+    <div class="sidebar-cart" id="sidebar-cart">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="cart-close">✕</button>
+        </div>
+        <div class="cart-body">
+            <p id="empty-cart-msg">No hay productos elegidos por el usuario.</p>
+            <ul id="cart-items-list"></ul>
+        </div>
+        <div class="cart-footer">
+            <button class="btn-checkout" id="btn-pago">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 PINK DECOR - Proyecto Integrador. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
